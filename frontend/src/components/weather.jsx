@@ -10,7 +10,7 @@ const Weather = () => {
     const fetchData = async () => {
       try {
         const apiKey = '9590fa6f738ef51f6424d10d0df6d8fd';
-        const city = 'Jaipur';
+        const city = 'Karlskrona';
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
         const response = await axios.get(apiUrl);
