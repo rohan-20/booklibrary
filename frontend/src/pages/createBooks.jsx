@@ -31,12 +31,12 @@ const CreateBooks = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4" style={{ backgroundImage: `url('/libraryinside.jpg')`, backgroundSize: '25%', minHeight: '100vh'}}>
       <BackButton />
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl my-4 font-bold">Create Book</h1>
+        <h1 className="text-3xl my-4 text-yellow-400 font-bold">Create Book</h1>
         {loading && <div className="spinner"></div>}
-        <div className="bg-white rounded-xl shadow-md p-8">
+        <div className="bg-gray-300 rounded-xl shadow-md p-8">
           <div className="mb-6">
             <label className="block text-xl text-gray-800">Title</label>
             <input

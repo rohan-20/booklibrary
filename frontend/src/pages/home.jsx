@@ -26,7 +26,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-4 max-w-screen-lg mx-auto">
+    <div className="p-4 max-w-screen-lg mx-auto bg-cover bg-center" style={{ backgroundImage: `url('/library.jpg')`, minHeight: '100vh' }}>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-extrabold text-gray-800">My Book Wishlist</h1>
         <Link to="/books/create">
