@@ -4,6 +4,7 @@ import Spinner from '../components/spinner';
 import { Link } from 'react-router-dom';
 import {BsInfoCircle} from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
+import Weather from '../components/weather';
 
 
 
@@ -32,6 +33,7 @@ const Home = () => {
           <MdOutlineAddBox className="text-4xl text-gray-500 hover:text-gray-700 transition duration-300" />
         </Link>
       </div>
+      <Weather />
       {loading ? (
         <Spinner />
       ) : (
