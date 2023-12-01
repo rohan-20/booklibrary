@@ -1,6 +1,7 @@
 import express from 'express';
 import {Book} from '../models/bookModel.js';
 
+
 const router = express.Router();
 
 router.post('/', async (request, response) => {
@@ -89,5 +90,20 @@ router.delete('/:id', async (request, response) => {
         response.status(500).send({ message: error.message });
     }
 });
+
+router.get('/quotes/random', async (req, res) => {
+    try {
+      const specificQuote = {
+        text: "Time can be a greedy thing- sometimes it steals the details for itself.",
+        author: "Khaled Hosseini",
+        book: "The Kite Runner"
+      };
+  
+      res.json({ quote: specificQuote });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 
 export default router;

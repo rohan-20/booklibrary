@@ -10,7 +10,9 @@ import Weather from '../components/weather';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
+  const [quote, setQuote] = useState(null);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -23,7 +25,20 @@ const Home = () => {
         console.log(error);
         setLoading(false);
       });
+
+      fetchRandomQuote();
+
   }, []);
+
+  const fetchRandomQuote = async () => {
+    try {
+      const response = await axios.get('http://localhost:27017/books/quotes/random');
+      setQuote(response.data.quote);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div className="p-4 max-w-screen-lg mx-auto bg-cover bg-center" style={{ backgroundImage: `url('/library.jpg')`, minHeight: '100vh' }}>
@@ -33,6 +48,16 @@ const Home = () => {
           <MdOutlineAddBox className="text-4xl text-gray-500 hover:text-gray-700 transition duration-300" />
         </Link>
       </div>
+
+      {quote && (
+        <div className="mb-8 p-4 bg-white rounded-md shadow-md">
+          <h2 className="text-xl font-bold mb-2">Book Quote of the Day</h2>
+          <p className="text-gray-700">"{quote.text}"</p>
+          <p className="text-gray-600">- {quote.author}, {quote.book}</p>
+        </div>
+      )}
+
+      
       <Weather />
       {loading ? (
         <Spinner />
